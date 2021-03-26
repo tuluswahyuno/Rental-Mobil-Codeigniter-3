@@ -1,4 +1,13 @@
 ###################
+SIlahkan gunakan dengan bijak
+###################
+User Admin : admin
+pass : admin
+
+User Customer : asdf
+pass : asdf
+
+###################
 What is CodeIgniter
 ###################
 
