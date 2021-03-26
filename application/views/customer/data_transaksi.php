@@ -16,6 +16,7 @@
               <th>No. Plat</th>
               <th>Harga/Hari</th>
               <th>Action</th>
+              <th>Batal</th>
             </tr>
 
 
@@ -44,6 +45,23 @@
                  
               </td>
 
+              <td>
+
+                <?php 
+                  if($tr->status_rental == 'Belum Selesai'){?>
+
+
+                <a onclick="return confirm('Yakin Batal?')" class="btn btn-sm btn-danger" href="<?php echo base_url('customer/transaksi/batal_transaksi/'.$tr->id_rental) ?>">Batal</a>
+               <?php }else{ ?>
+
+                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalku">
+                Batal
+            </button>
+                
+               <?php } ?>
+
+              </td>
+
             </tr>
 
             <?php endforeach; ?>
@@ -55,3 +73,59 @@
     </div>
 
 </div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Modal dengan Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+  <!-- The Modal untuk upload bukti pembayaran-->
+  <div class="modal fade" id="modalku">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Ini adalah Bagian Header Modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Informasi Batal Transaksi</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+
+        <!-- Ini adalah Bagian Body Modal -->
+        <!-- <form method="POST" action="<?php echo base_url('customer/transaksi/pembayaran_aksi') ?>" enctype="multipart/form-data"> -->
+
+        <div class="modal-body">
+          
+            <label>Maaf, transaksi ini sudah selesai dan tidak bisa dibatalkan !</label>
+            <!-- <input type="file" name="bukti_pembayaran" class="form-control"> -->
+          
+        </div>
+        
+        <!-- Ini adalah Bagian Footer Modal -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+         
+        </div>
+        </form>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>
