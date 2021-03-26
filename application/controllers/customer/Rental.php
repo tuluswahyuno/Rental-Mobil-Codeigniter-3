@@ -36,6 +36,7 @@
 				'tanggal_pengembalian' => '',
 				'status_pengembalian' => 'Belum Kembali',
 				'status_rental'		=> 'Belum Selesai',
+				'total_denda'		=> '0',
 				
 
 			);

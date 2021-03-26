@@ -4,6 +4,8 @@
             <h1>Data Transaksi</h1>
           </div>
 
+          <span class="mt-2 p-2"><?php echo $this->session->flashdata('pesan') ?></span>
+
 
           <table class="table-responsive table table-striped table-borderd">
 
@@ -38,9 +40,12 @@
 	          			<td><?php echo date('d-m-y', strtotime($tr->tanggal_rental))  ?></td>
                   <td><?php echo date('d-m-y', strtotime($tr->tanggal_kembali)) ?></td>
                   <td>Rp. <?php echo number_format($tr->harga,0,',','.') ?></td>
-                  <td><?php echo $tr->total_denda ?></td>
+                  
+                  
                   <td>Rp. <?php echo number_format($tr->denda,0,',','.') ?></td>
-                  <!-- <td>Rp. <?php echo number_format($tr->total_denda,0,',','.') ?></td> -->
+
+                  <td>Rp. <?php echo number_format($tr->total_denda,0,',','.') ?></td>
+                  
 	          			<td>
                       <?php 
 
@@ -106,7 +111,7 @@
                           <div class="row">
                             <a class="btn btn-sm btn-success mr-2" href="<?php echo base_url('admin/transaksi/transaksi_selesai/'.$tr->id_rental) ?>"><i class="fas fa-check"></i></a>
 
-                            <a class="btn btn-sm btn-danger" href="<?php echo base_url('admin/transaksi/transaksi_batal/'.$tr->id_rental) ?>"><i class="fas fa-times"></i></a>
+                            <a onclick="return confirm('Yakin Batal?')" class="btn btn-sm btn-danger" href="<?php echo base_url('admin/transaksi/batal_transaksi/'.$tr->id_rental) ?>"><i class="fas fa-times"></i></a>
 
                           </div>
 
