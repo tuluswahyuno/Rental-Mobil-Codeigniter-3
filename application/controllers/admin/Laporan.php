@@ -36,11 +36,31 @@
 			}
 		}
 
-		public function _rules(){
+
+		public function print_laporan()
+		{
+			$dari = $this->input->get('dari');
+			$sampai = $this->input->get('sampai');
+			$data['title'] = "Printa Laporan Transaksi";
+
+			
+
+			$data['laporan'] = $this->db->query("SELECT * FROM transaksi tr, mobil mb, customer cs  WHERE tr.id_mobil=mb.id_mobil AND tr.id_customer=cs.id_customer AND date(tanggal_rental) >= '$dari' AND date(tanggal_rental) <= '$sampai'")->result();
+
+				$this->load->view('templates_admin/header',$data);
+				$this->load->view('admin/print_laporan',$data);
+			
+
+		}
+
+		public function _rules()
+		{
 			$this->form_validation->set_rules('dari','Dari Tanggal', 'required');
 			$this->form_validation->set_rules('sampai','Sampai Tanggal', 'required');
 			
 		}
+
+		
 
 
 		

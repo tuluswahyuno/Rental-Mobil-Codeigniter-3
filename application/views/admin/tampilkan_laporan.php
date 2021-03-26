@@ -20,14 +20,19 @@
 		<?php echo form_error('sampai','<span class="text-small text-danger">','</span>') ?>
 	</div>
 
-	<div>
-		<button type="submit" class="btn btn-primary" ><i class="fas fa-eye"></i> Tampilkan Data</button>
+	
+		<button type="submit" class="btn btn-sm btn-primary" ><i class="fas fa-eye"></i> Tampilkan Data</button>
+	
+
+	<hr>
+
+	<div class="btn-group">
+		<a class="btn btn-sm btn-success" target="_blank" href="<?php echo base_url().'admin/laporan/print_laporan/?dari='.set_value('dari').'&sampai='.set_value('sampai') ?>"><i class="fas fa-print"></i> Print Laporan</a>
 	</div>
 
+	<table class="table-responsive table table-striped table-bordered mt-3">
 
-	<table class="table-responsive table table-striped table-borderd mt-3">
-
-
+ 
           	<thead>
           		<tr>
           		<th>No</th>
